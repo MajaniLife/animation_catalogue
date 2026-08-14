@@ -259,7 +259,8 @@ Everything below assumes display type unless it says otherwise.
 - **Stack** — any library, or `requestAnimationFrame` in a dozen lines.
 - **Params** — duration (1.2–2s); easing (strong ease-out — the deceleration is what sells
   it); formatting (thousands separators preserved, decimals fixed).
-- **Use when** — three or four headline metrics, once on a page.
+- **Use when** — three or four headline metrics, once on a page. Inside a chart rather than
+  as standalone type, see `dataviz.counter` and `svg.counter-arc`.
 - **Don't use when** — the number is precise and consequential — a price, a balance, a
   dosage. Watching a real figure churn undermines trust in it.
 - **Reduced motion** — final value, immediately. The authored markup should contain the
@@ -314,7 +315,8 @@ Everything below assumes display type unless it says otherwise.
 - **Mechanism** — the text must be **converted to SVG paths** at build time, then
   `stroke-dashoffset` animated from full to zero on each path.
 - **Stack** — SVG plus a draw plugin (GSAP DrawSVG, free since 2025) or plain CSS on
-  `stroke-dashoffset`. Requires an asset pipeline step — this is not live text.
+  `stroke-dashoffset`. Requires an asset pipeline step — this is not live text. The general
+  technique is `svg.stroke-draw`; for a name specifically, see `svg.signature`.
 - **Params** — duration per letter; stagger between letters; stroke width; whether a fill
   appears after the draw completes.
 - **Use when** — a logo, a signature, one hero word. Anything short and fixed.

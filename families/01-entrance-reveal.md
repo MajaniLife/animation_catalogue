@@ -143,6 +143,7 @@ distinction is the whole difference between a coordinated cascade and visual noi
 - **Params** — inset (15–20%; above 30% the image is a stamp); inner scale (1.1–1.2; must
   exceed the inset or edges show); scroll range (start "top 90%", end "top 35%").
 - **Use when** — editorial imagery, project thumbnails, anywhere the image is the content.
+  Scrubbed against scroll rather than triggered, this is `scroll.clip-expand`.
 - **Don't use when** — the page has more than a handful of images. The move loses all
   effect by the fourth repetition, and it is now common enough to read as a template.
 - **Reduced motion** — image at full size, no clip, no scale.
@@ -233,7 +234,8 @@ distinction is the whole difference between a coordinated cascade and visual noi
   cannot batch — each element gets its own timeline.
 - **Params** — stagger (0.08–0.12s); batch max (4–6 — beyond that the last item in a wave
   arrives late enough to feel forgotten); start threshold ("top 85–88%").
-- **Use when** — card grids, project lists, logo walls, anything repeated.
+- **Use when** — card grids, project lists, logo walls, anything repeated. For single
+  elements rather than sets, `scroll.reveal-enter` is the same idea without the batching.
 - **Don't use when** — items are large enough that only one fits on screen; batching has
   nothing to batch.
 - **Reduced motion** — all items visible, no travel; the stagger can be dropped entirely.
@@ -401,7 +403,7 @@ distinction is the whole difference between a coordinated cascade and visual noi
   a different size from the real content — the swap produces exactly the layout shift it
   was meant to prevent, and is worse than no skeleton at all.
 - **Mechanism** — crossfade between placeholder and content, no transform. The shimmer is a
-  separate looping gradient animation.
+  separate looping gradient animation — see `micro.skeleton-shimmer`.
 - **Stack** — CSS for both halves; framework state decides the swap.
 - **Params** — crossfade duration (0.15–0.25s — fast; this is a state change, not a
   reveal); shimmer period (1.5–2s; faster reads as anxious); minimum display time (~300ms,

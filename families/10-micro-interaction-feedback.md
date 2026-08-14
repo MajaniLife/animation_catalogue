@@ -213,9 +213,13 @@ interaction inherits the latency of your backend.
 
 - **One line** — the copy button briefly becomes a confirmation.
 - **What the reader sees** — Click the copy icon and it changes to a tick, with the label
-  swapping to "Copied" — for about a second and a half — before reverting. Nothing else moves,
-  no toast appears, no dialog. The feedback happens exactly where you clicked, which is where
-  you are already looking.
+  swapping to "Copied" — for about a second and a half — before reverting to its resting
+  state. Nothing else moves: no toast slides in from a corner, no dialog appears, nothing
+  demands dismissal. The feedback happens exactly where you clicked, which is exactly where
+  you are already looking, and it costs you no attention to receive it. The revert is what
+  makes it repeatable — the button returns to its normal state ready to be used again, so
+  copying three things in a row produces three identical confirmations rather than an
+  accumulating pile of notifications.
 - **Mechanism** — a state swap with a short crossfade or icon morph, on a timer.
 - **Stack** — CSS transition plus a timeout.
 - **Params** — swap duration (150ms); hold (1.2–2s); revert (150ms).

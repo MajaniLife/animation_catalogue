@@ -257,7 +257,8 @@ expose.
   `view-transition-name` on the indicator.
 - **Params** — duration (0.25–0.3s); easing (ease-out); whether the label colour transitions
   with it.
-- **Use when** — tabs, segmented controls, filter pills, nav underlines.
+- **Use when** — tabs, segmented controls, filter pills, nav underlines. The same shared-marker
+  technique applied to keyboard focus is `micro.focus-ring`.
 - **Don't use when** — tabs wrap to multiple lines; a horizontal slide across a line break
   looks broken.
 - **Reduced motion** — the indicator jumps to the new tab.

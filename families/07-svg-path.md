@@ -42,6 +42,7 @@ between these two icons" is a much bigger request than it sounds.
 - **Params** — duration (0.8–2s depending on path length); stagger between paths (0.05–0.15s);
   direction (reverse the offset sign); segment (a window rather than a growing line).
 - **Use when** — logos, signatures, icons, diagram connectors, underline flourishes.
+  Applied to a time series it is `dataviz.line-draw`; to lettering, `text.stroke-draw`.
 - **Don't use when** — the shape is filled rather than stroked. This technique only draws
   outlines; a filled shape has to fake it with a clip.
 - **Reduced motion** — the completed drawing, immediately.

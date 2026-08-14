@@ -5,7 +5,7 @@ file, commits, and ticks it. Never two phases. Never skipped.
 
 - [x] 00 Foundation — taxonomy, stacks, entry schema, queue
 - [x] 01 Entrance & reveal
-- [ ] 02 Text & kinetic typography
+- [x] 02 Text & kinetic typography
 - [ ] 03 Scroll-driven
 - [ ] 04 Pointer, hover & cursor
 - [ ] 05 Layout & shared-element transitions (FLIP)

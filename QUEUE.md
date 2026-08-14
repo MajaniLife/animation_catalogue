@@ -15,7 +15,7 @@ file, commits, and ticks it. Never two phases. Never skipped.
 - [x] 09 Physics, drag & gesture
 - [x] 10 Micro-interaction & feedback
 - [x] 11 Data-visualisation motion
-- [ ] 12 Ambient & decorative
+- [x] 12 Ambient & decorative
 - [ ] 13 Cross-cutting — accessibility, performance, orchestration, anti-patterns
 - [ ] 14 Index & decision tree
 - [ ] 15 QA & conformance pass

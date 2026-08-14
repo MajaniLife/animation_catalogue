@@ -31,7 +31,7 @@ phase, research before writing, own file only.
 - [x] 17 Navigation & menu systems
 - [x] 18 Forms & input
 - [x] 19 Loading, progress & streaming states
-- [ ] 20 Overlays — modals, drawers, tooltips, popovers
+- [x] 20 Overlays — modals, drawers, tooltips, popovers
 - [ ] 21 E-commerce & conversion motion
 - [ ] 22 Onboarding, tours & empty states
 - [ ] 23 Tables, lists & data grids

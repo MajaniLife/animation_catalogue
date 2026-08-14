@@ -11,7 +11,7 @@ file, commits, and ticks it. Never two phases. Never skipped.
 - [x] 05 Layout & shared-element transitions (FLIP)
 - [x] 06 Page & route transitions
 - [x] 07 SVG & path animation
-- [ ] 08 3D & WebGL
+- [x] 08 3D & WebGL
 - [ ] 09 Physics, drag & gesture
 - [ ] 10 Micro-interaction & feedback
 - [ ] 11 Data-visualisation motion

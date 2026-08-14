@@ -16,7 +16,7 @@ file, commits, and ticks it. Never two phases. Never skipped.
 - [x] 10 Micro-interaction & feedback
 - [x] 11 Data-visualisation motion
 - [x] 12 Ambient & decorative
-- [ ] 13 Cross-cutting — accessibility, performance, orchestration, anti-patterns
+- [x] 13 Cross-cutting — accessibility, performance, orchestration, anti-patterns
 - [ ] 14 Index & decision tree
 - [ ] 15 QA & conformance pass
 

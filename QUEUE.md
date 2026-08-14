@@ -14,7 +14,7 @@ file, commits, and ticks it. Never two phases. Never skipped.
 - [x] 08 3D & WebGL
 - [x] 09 Physics, drag & gesture
 - [x] 10 Micro-interaction & feedback
-- [ ] 11 Data-visualisation motion
+- [x] 11 Data-visualisation motion
 - [ ] 12 Ambient & decorative
 - [ ] 13 Cross-cutting — accessibility, performance, orchestration, anti-patterns
 - [ ] 14 Index & decision tree

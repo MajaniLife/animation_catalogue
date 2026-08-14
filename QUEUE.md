@@ -8,7 +8,7 @@ file, commits, and ticks it. Never two phases. Never skipped.
 - [x] 02 Text & kinetic typography
 - [x] 03 Scroll-driven
 - [x] 04 Pointer, hover & cursor
-- [ ] 05 Layout & shared-element transitions (FLIP)
+- [x] 05 Layout & shared-element transitions (FLIP)
 - [ ] 06 Page & route transitions
 - [ ] 07 SVG & path animation
 - [ ] 08 3D & WebGL

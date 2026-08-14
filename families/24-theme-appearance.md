@@ -243,10 +243,14 @@ switch rather than a foundation.
 ### Contrast mode (`theme.contrast-mode`)
 
 - **One line** — the interface switches to maximum legibility.
-- **What the reader sees** — Borders that were subtle become solid. Backgrounds separate more
-  strongly from text. Decorative gradients, translucency and low-contrast placeholder greys are
-  replaced by flat, high-contrast equivalents. It looks plainer and considerably more legible,
-  and for the people who need it, it is the difference between usable and not.
+- **What the reader sees** — Borders that were subtle become solid lines. Backgrounds separate
+  more strongly from the text sitting on them. Decorative gradients, translucency, frosted
+  panels and low-contrast placeholder greys are all replaced by flat, high-contrast
+  equivalents, and shadows give way to explicit outlines. Nothing moves and nothing is
+  rearranged — the layout is identical, and only the treatment changes. It looks plainer than
+  the design you drew, and considerably more legible: every edge is now declared rather than
+  implied. For the people who need it, this is the difference between an interface that is
+  usable and one that is not, which is why it is never a lesser version of the theme.
 - **Mechanism** — a token set swapped by `prefers-contrast: more`, plus honouring
   `forced-colors: active` where the OS overrides colours entirely.
 - **Stack** — CSS media queries and a second token set.

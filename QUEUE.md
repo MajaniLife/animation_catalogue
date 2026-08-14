@@ -13,7 +13,7 @@ file, commits, and ticks it. Never two phases. Never skipped.
 - [x] 07 SVG & path animation
 - [x] 08 3D & WebGL
 - [x] 09 Physics, drag & gesture
-- [ ] 10 Micro-interaction & feedback
+- [x] 10 Micro-interaction & feedback
 - [ ] 11 Data-visualisation motion
 - [ ] 12 Ambient & decorative
 - [ ] 13 Cross-cutting — accessibility, performance, orchestration, anti-patterns

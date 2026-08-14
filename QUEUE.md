@@ -20,6 +20,26 @@ file, commits, and ticks it. Never two phases. Never skipped.
 - [x] 14 Index & decision tree
 - [x] 15 QA & conformance pass
 
+## Expansion — v2
+
+The first sixteen phases covered the motion *primitives*. This expansion covers the
+*surfaces* those primitives get applied to — the recurring interface contexts where the
+choice of effect is constrained by what the surface is for. Same rules: one session, one
+phase, research before writing, own file only.
+
+- [ ] 16 Media & image motion
+- [ ] 17 Navigation & menu systems
+- [ ] 18 Forms & input
+- [ ] 19 Loading, progress & streaming states
+- [ ] 20 Overlays — modals, drawers, tooltips, popovers
+- [ ] 21 E-commerce & conversion motion
+- [ ] 22 Onboarding, tours & empty states
+- [ ] 23 Tables, lists & data grids
+- [ ] 24 Theme & appearance transitions
+- [ ] 25 Playful, reward & delight
+- [ ] 26 Motion systems — tokens, specs, handoff
+- [ ] 27 Index & QA pass for the expansion
+
 ## Notes for the next session
 
 - Phases 01–12 write `families/<nn>-<slug>.md`. Minimum 12 entries, aim for 18.

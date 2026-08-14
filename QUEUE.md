@@ -48,3 +48,7 @@ phase, research before writing, own file only.
   of them; do not propagate an unverified number into a family file without checking it.
 - Phase 15 is the only phase permitted to edit an earlier phase's file, and must log
   every edit in `QA-REPORT.md`.
+
+## Opened by the discovery pipeline
+
+- [x] 28 Collaborative & presence motion — opened against gap `G01`. **In progress:** 1 entry of a 12 minimum. Do not treat as complete.

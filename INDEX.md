@@ -1,6 +1,6 @@
 # Index
 
-261 entries across twenty-two families, plus two cross-cutting documents. Cost is bundle *and* runtime: **free** (CSS/platform only),
+262 entries across twenty-three families, plus two cross-cutting documents. Cost is bundle *and* runtime: **free** (CSS/platform only),
 **cheap** (a few KB or a library already present), **moderate** (a dedicated library or plugin),
 **heavy** (its own rendering stack).
 
@@ -382,6 +382,14 @@ or the [conflict matrix](#conflict-matrix) before combining two effects.
 | `play.haptic-pairing` | Vibration API | free | A physical tap accompanies the visual response |
 | `play.surprise-reveal` | canvas | cheap | Something concealed, uncovered by the user |
 
+### Collaborative & presence motion — [`families/28`](families/28-collaborative-presence.md)
+
+Newly opened, one entry. See the file header — the family is in progress.
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `presence.live-cursors` | vanilla JS | cheap | Other people's pointers appear on the same surface as small labelled arrows, |
+
 ### Motion systems — [`motion-systems.md`](motion-systems.md)
 
 Not a family file. Tokens, naming, specs, review, testing and versioning — the layer that makes
@@ -504,6 +512,8 @@ Pairs the catalogue advises against combining, with the reason.
 | any `pointer.*` | touch-only context | No pointer exists; gate on `(any-hover: hover)` |
 | `micro.ripple` | non-Material design language | Carries a strong system association |
 | `dataviz.*` transitions | index-keyed data joins | Elements silently change meaning; the constancy failure |
+| `presence.live-cursors` | `pointer.cursor-dot` | Two visual grammars for the same object: a styled cursor for you, labelled arrows for everyone else |
+| `presence.live-cursors` | `ambient.cursor-trail` | Same, and the trail obscures which arrow is whose |
 
 ---
 

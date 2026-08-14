@@ -29,7 +29,7 @@ phase, research before writing, own file only.
 
 - [x] 16 Media & image motion
 - [x] 17 Navigation & menu systems
-- [ ] 18 Forms & input
+- [x] 18 Forms & input
 - [ ] 19 Loading, progress & streaming states
 - [ ] 20 Overlays — modals, drawers, tooltips, popovers
 - [ ] 21 E-commerce & conversion motion

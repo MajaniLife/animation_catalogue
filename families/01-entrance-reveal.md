@@ -447,7 +447,8 @@ distinction is the whole difference between a coordinated cascade and visual noi
   overridden and silently does nothing. **Transitions only** — it has no effect on CSS
   animations. **Exit is not the mirror of entry**: animating out of `display: none` also
   needs the `overlay` property for top-layer elements, which was **not** Baseline as of
-  that guidance, so exit animations remain the weaker half. `@starting-style` and
+  that guidance, so exit animations remain the weaker half. `overlay.top-layer-exit`
+  documents the working technique. `@starting-style` and
   `allow-discrete` became Baseline in August 2024 (Chrome 117+, Firefox 129+, Safari 17.4+).
 - **References** — https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style ·
   https://web.dev/blog/baseline-entry-animations ·

@@ -158,7 +158,8 @@ starting point for anything dropdown-shaped in 2026 rather than a hand-rolled eq
   behaviour.
 - **Params** — duration (0.28–0.35s); easing (ease-out on open, ease-in on close); scrim opacity
   (0.4–0.6); drag-to-close threshold.
-- **Use when** — mobile navigation, filter panels, secondary tools.
+- **Use when** — mobile navigation, filter panels, secondary tools. On phones a bottom-anchored
+  panel is usually the better shape — see `overlay.bottom-sheet`.
 - **Don't use when** — the content behind must stay usable. A scrim says "deal with me first".
 - **Reduced motion** — appears without sliding; the scrim can still fade.
 - **Performance** — one transform plus a backdrop; trivial.

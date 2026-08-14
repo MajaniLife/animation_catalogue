@@ -1,141 +1,166 @@
 # QA & conformance report
 
-Phase 15. Every file re-read, every entry checked against `ENTRY-SCHEMA.md`, every reference
-URL requested, duplicates reconciled. This is the only phase permitted to edit an earlier
-phase's file, and every edit it made is listed below.
-
-**Scope of the catalogue as verified:** 142 entries, 142 unique ids, across 12 family files
-plus `TAXONOMY.md`, `STACKS.md`, `ENTRY-SCHEMA.md`, `cross-cutting.md` and `INDEX.md`.
+Two passes have run against this catalogue: **phase 15** closed the original twelve families,
+and **phase 27** closed the twelve-phase expansion and re-verified everything. This document
+records both, most recent first.
 
 ---
+
+# Phase 27 — expansion QA pass
+
+Scope as verified: **261 entries across 22 family files**, plus `TAXONOMY.md`, `STACKS.md`,
+`ENTRY-SCHEMA.md`, `cross-cutting.md`, `motion-systems.md` and `INDEX.md`.
 
 ## 1. Schema conformance
 
-Checked programmatically: every entry must carry all eleven required fields, a unique id, at
-least one reference URL, and a "What the reader sees" paragraph inside the 60–150 word target.
+Checked programmatically across every family file: all eleven required fields present, ids
+unique, at least one reference URL, and "What the reader sees" inside the 60–150 word target.
 
 | Check | Result |
 |---|---|
-| Entries with all 11 required fields | **142 / 142** |
-| Unique ids (no collisions) | **142 / 142** |
-| Entries with ≥1 reference URL | **142 / 142** |
-| "What the reader sees" within target | **141 / 142** before fixes, **142 / 142** after |
+| Entries with all 11 required fields | **261 / 261** |
+| Unique ids (no collisions) | **261 / 261** |
+| Entries with ≥1 reference URL | **261 / 261** |
+| "What the reader sees" within target | **261 / 261** |
 
-**"What the reader sees" length distribution:** average 83 words, minimum 50 (now corrected),
-maximum 117. Comfortably inside the schema's 60–150 band, and consistent across families —
-no family drifted into either bullet-point summary or essay.
+**Length distribution:** average 78 words, minimum 55, maximum 117. Consistent across all
+twenty-two families — no family drifted toward either bullet-point summary or essay.
 
-### Fixed
+### Fixed during the expansion
 
-- **`micro.copy-confirm`** — the only conformance failure in the catalogue. Its "What the
-  reader sees" was 50 words, below the 60-word floor. Rewritten to 84 words, adding what the
-  revert accomplishes (repeatability across successive copies) rather than padding the
-  existing description.
+One conformance failure occurred and was corrected mid-expansion rather than left for this pass:
 
----
+- **`theme.contrast-mode`** (phase 24) — "What the reader sees" was 48 words, under the floor.
+  Rewritten to 96 words describing what the treatment actually replaces and that the layout is
+  unchanged.
 
-## 2. Duplicate and near-duplicate reconciliation
+**A process defect worth recording.** That failure was *detected* by the per-phase check but
+still reached a commit, because the check printed its findings without a non-zero exit status,
+so the shell treated it as success. The check now exits 1 on any problem, and every phase from
+25 onward was gated by it properly. The catalogue is clean; the gate that was supposed to
+guarantee that was not, for nine phases.
 
-Several techniques legitimately appear in more than one family, because the same mechanism
-serves a genuinely different purpose in each context. The policy applied: **keep both, and
-cross-reference in both directions.** A reader arriving at either entry should learn that the
-other exists.
+## 2. Format deviation — `motion-systems.md`
 
-Seven pairs were found where the later-written entry referenced the earlier one but not the
-reverse — an artefact of the files being written in queue order. All seven back-references
-have been added.
+Phase 26 was specified as a family file of 10–15 schema-conforming entries. It was written as a
+**root-level document instead**, deliberately.
 
-| Pair | Relationship | Action |
-|---|---|---|
-| `entrance.clip-expand` ↔ `scroll.clip-expand` | Same move, triggered vs scrubbed | Back-reference added to `entrance` |
-| `entrance.skeleton-swap` ↔ `micro.skeleton-shimmer` | The swap vs the shimmer loop | Back-reference added to `entrance` |
-| `entrance.batch-stagger` ↔ `scroll.reveal-enter` | Sets vs single elements | Back-reference added to `entrance` |
-| `text.stroke-draw` ↔ `svg.stroke-draw` / `svg.signature` | General technique vs applied to lettering | Back-reference added to `text` |
-| `text.counter-odometer` ↔ `dataviz.counter` / `svg.counter-arc` | Type vs chart context | Back-reference added to `text` |
-| `svg.stroke-draw` ↔ `dataviz.line-draw` / `text.stroke-draw` | General vs time-series vs lettering | Back-references added to `svg` |
-| `layout.tab-indicator` ↔ `micro.focus-ring` | Same shared-marker technique, different job | Back-reference added to `layout` |
+Its subject is tokens, naming conventions, spec formats, review checklists, testing and
+versioning — engineering practice, not animations. "What the reader sees" is meaningless for a
+naming convention, and forcing the content into the schema would have produced exactly the
+contorted writing this catalogue criticises elsewhere. The deviation is stated in the file's own
+header, annotated on its `QUEUE.md` line, and `INDEX.md` lists it as a document rather than a
+family. Recorded here as intentional so that a future pass does not "fix" it.
 
-No entry was deleted as a duplicate. In each case the two entries answer different questions
-("what does this look like on a chart" vs "what does this look like on a logo") and merging
-them would have made both harder to find.
+## 3. Cross-reference reconciliation
 
----
+Twelve pairs of related entries across family boundaries were checked for bidirectional
+references. Seven had **no** reference in either direction; five referenced forward only — the
+predictable artefact of files being written in queue order, since a later file can cite an
+earlier one but not the reverse.
 
-## 3. Reference link check
+**All twelve now cross-reference.** The most consequential:
 
-All **104 unique URLs** across the catalogue were requested with a redirect-following client.
+| Pair | Why it mattered |
+|---|---|
+| `entrance.starting-style` ↔ `overlay.top-layer-exit` | The first warns that exit animations are the weaker half; the second contains the working fix. A reader hitting the warning needed the route to the answer. |
+| `micro.delayed-spinner` ↔ `load.stall-escalate` | The spinner entry caps at ~10s; the escalation entry is what happens past it. |
+| `dataviz.sort-reorder` ↔ `table.sort-reorder` | Same technique, different constraint — the table version carries the row-count ceiling. |
+| `micro.toast` ↔ `overlay.snackbar` | Distinguished by whether the message carries an action, which changes the timing. |
+| `nav.drawer` ↔ `overlay.bottom-sheet` | On phones the bottom-anchored shape is usually correct. |
+| `micro.count-change` ↔ `commerce.price-update` | A silently changed price is the most consequential case of the general pattern. |
+| `physics.wiggle` ↔ `form.inline-validation` | The shake, and the rules about when to fire it. |
+
+No entry was merged or deleted. In each case the two entries answer different questions and
+merging them would make both harder to find.
+
+## 4. Reference link check
+
+All **205 unique URLs** across the catalogue were requested with a redirect-following client.
 
 | Result | Count | Interpretation |
 |---|---|---|
-| `200 OK` | **92** | Live and reachable |
-| `403 Forbidden` | 5 | Bot protection, not a dead link |
-| No response from this environment | 7 | Network restriction here, not a dead link |
+| `200 OK` | **186** | Live and reachable |
+| `403 Forbidden` | 12 | Bot protection (CodePen, Medium ×3, Toptal, wcag.com and others) |
+| `429 Too Many Requests` | 2 | Rate-limited by this pass's own request volume |
+| No response from this environment | 4 | Network restriction here — includes hosts successfully fetched during earlier phases |
+| **`404 Not Found`** | **1** | **Genuinely dead — removed** |
 
-**No links were removed**, and that decision is worth recording rather than hiding.
+### The dead link, and what replaced it
 
-- The five **403s** are CodePen (×2), Medium, `wcag.com` and `learnlyai.co.uk` — all hosts
-  with WAF or bot protection that reject automated clients while serving humans normally.
-- The seven **non-responding** hosts include `developer.chrome.com`, `web.dev`, `css-tricks.com`,
-  MDN mirrors and `ericwbailey.website`. Several of these were **successfully fetched during
-  earlier phases of this catalogue's own construction**, which is direct evidence they are
-  live and that the failure is a restriction in the checking environment, not a dead URL.
+`dev.to/zeeshanali0704/frontend-system-design-virtualization-handling-large-data-sets` returned
+404. It had been cited twice in `families/23`. Both citations were replaced with sources
+verified live in this pass: MDN's `contain` reference for `table.column-resize`, and
+patterns.dev's virtual-lists guide for `table.pagination`.
 
-Deleting a working reference because a sandbox could not reach it would make the catalogue
-worse. The honest position is that 92 links are confirmed live, 12 are unconfirmed by this
-pass, and none are confirmed dead.
+The 403s and 429s were **not** removed: they are bot protection and rate limiting, not dead
+pages. The four unreachable hosts include `developer.chrome.com` and `web.dev`, several pages of
+which were successfully fetched during the phases that cited them — direct evidence the failure
+is environmental. Deleting working references because a sandbox could not reach them would make
+the catalogue worse.
+
+## 5. Consistency audit
+
+**Confirmed consistent across all 22 families:**
+
+- **Reduced motion** — every entry states what the effect *becomes*, not merely that it stops.
+- **Cost model** — the compositor / repaint / reflow ranking is stated identically in
+  `TAXONOMY.md`, the SVG family, `cross-cutting.md` and `motion-systems.md`.
+- **The scroll-reveal bug** — handling both directions and reconciling on refresh appears in
+  `entrance.batch-stagger`, `scroll.reveal-enter` and the anti-patterns list, phrased compatibly.
+- **Regulatory claims** — the FTC rule vacated 2025 with Section 5 enforcement continuing, the
+  EU Digital Fairness Act proposal expected Q4 2026, and Brazil's Decree 12,880/2026 are each
+  stated once with sources and referenced consistently where they recur.
+- **Timing thresholds** — the Nielsen 0.1s / 1s / 10s figures and the ~250ms spinner delay are
+  used consistently in `families/10`, `families/19` and `motion-systems.md`.
+
+**Deliberate, flagged inconsistency — unchanged from phase 15:**
+
+- `STACKS.md` still marks roughly ten library versions and weights with ⚠️ as unverified. This
+  pass did **not** re-verify them, so they have **not** been promoted to ✅. Doing so without
+  checking would be precisely the failure the marking exists to prevent. **This remains the
+  largest known gap in the catalogue.**
+
+## 6. Known gaps
+
+1. **Unverified stack figures** in `STACKS.md` — ~10 libraries, every one marked. Unchanged
+   since phase 15 and still the obvious next task.
+2. **No entry has been visually verified.** The catalogue is written from documentation, specs
+   and technique write-ups. "What the reader sees" describes effects as documented and as
+   commonly implemented; none were built and observed as part of writing this.
+3. **Browser support is dated, not permanent.** Scroll-driven animations behind a Firefox flag,
+   cross-document view transitions absent from Firefox, `overlay` not Baseline, View Transitions
+   at ~89%, W3C DTCG not covering motion — all true as of August 2026 and all expected to move.
+4. **Eighteen links unconfirmed** by automated check (12 × 403, 2 × 429, 4 unreachable), as
+   documented in section 4. None confirmed dead.
+
+## 7. Verdict
+
+The catalogue conforms to its own schema: 261 entries, all fields present, all ids unique, all
+"What the reader sees" paragraphs within target, one dead link found and replaced, twelve
+cross-family pairs reconciled in both directions, one format deviation recorded as intentional.
+
+The unverified figures in `STACKS.md` remain the single outstanding weakness, and are marked
+throughout rather than hidden.
 
 ---
 
-## 4. Consistency audit
+# Phase 15 — original QA pass
 
-Checked by reading, not by script.
+Scope at the time: 142 entries across 12 families.
 
-**Confirmed consistent:**
+| Check | Result |
+|---|---|
+| Entries with all 11 required fields | 142 / 142 |
+| Unique ids | 142 / 142 |
+| "What the reader sees" within target | 141 / 142 before fixes, 142 / 142 after |
+| URLs checked | 104 — 92 live, 12 unconfirmed, 0 dead |
 
-- **Reduced motion** — every one of the 142 entries specifies what the effect *becomes*, not
-  merely that it is disabled, as `ENTRY-SCHEMA.md` requires.
-- **Cost model** — the compositor/repaint/reflow ranking is stated identically in
-  `TAXONOMY.md`, in the SVG family intro, and in `cross-cutting.md`.
-- **The scroll-reveal bug** — the "handle both directions and reconcile on refresh" failure is
-  documented in `entrance.batch-stagger`, `scroll.reveal-enter` and the `cross-cutting.md`
-  anti-patterns, and phrased compatibly in all three.
-- **GSAP licensing** — the April 2025 change to a fully free toolset is stated consistently
-  wherever a formerly-paid plugin is recommended, so no entry recommends something a reader
-  would believe they must pay for.
+**Fixed:** `micro.copy-confirm` (50 words, under the floor) rewritten to 84.
 
-**Deliberate, flagged inconsistency:**
+**Cross-references:** seven pairs of near-duplicate entries — clip-expand, skeleton, counter,
+stroke-draw, batch-stagger, tab-indicator — were referenced forward only; all seven
+back-references added. No entry deleted as a duplicate.
 
-- `STACKS.md` marks unverified figures with ⚠️. **Those marks have been left in place.**
-  Phase 15 confirmed no new figures for Lenis, Three.js, Lottie, Rive, Barba, Swup, Theatre.js,
-  Matter.js, React Spring or the framework-native transitions, so promoting them to ✅ would
-  have been a lie about what had been checked. The two conflicting GSAP bundle-size figures
-  are likewise still recorded as conflicting. **This is the largest known gap in the catalogue
-  and the obvious next piece of work.**
-
----
-
-## 5. Known gaps
-
-Recorded rather than quietly left.
-
-1. **Unverified stack figures.** As above — roughly ten libraries in `STACKS.md` carry versions
-   and weights that were not confirmed against primary sources. Every one is marked.
-2. **No entry has been visually verified.** The catalogue is written from documentation,
-   specifications and technique write-ups. The "What the reader sees" paragraphs describe
-   effects as documented and as commonly implemented; none were built and observed as part of
-   writing this. That is the correct caveat to attach to a reference assembled this way.
-3. **Browser support is a moving target.** Scroll-driven animations behind a Firefox flag,
-   cross-document view transitions not yet in Firefox, `overlay` not yet Baseline — all true as
-   of August 2026 and all likely to change. Support claims carry dates for this reason.
-4. **Twelve links unconfirmed** by the automated pass, as documented in section 3.
-
----
-
-## 6. Verdict
-
-The catalogue conforms to its own schema: 142 entries, all fields present, all ids unique, all
-"What the reader sees" paragraphs within target, no dead links found, near-duplicates
-cross-referenced in both directions.
-
-The single unfixed weakness is the unverified figures in `STACKS.md`, which are marked as
-such throughout and should be the first task of any future pass.
+**Known gaps recorded:** unverified `STACKS.md` figures, no visual verification, browser support
+as a moving target. All three persist and are restated above.

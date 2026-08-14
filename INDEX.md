@@ -1,6 +1,6 @@
 # Index
 
-142 entries across twelve families. Cost is bundle *and* runtime: **free** (CSS/platform only),
+261 entries across twenty-two families, plus two cross-cutting documents. Cost is bundle *and* runtime: **free** (CSS/platform only),
 **cheap** (a few KB or a library already present), **moderate** (a dedicated library or plugin),
 **heavy** (its own rendering stack).
 
@@ -213,6 +213,182 @@ or the [conflict matrix](#conflict-matrix) before combining two effects.
 | `ambient.video-loop` | platform | heavy | A muted video plays behind the content, forever |
 | `ambient.idle-nudge` | JS | free | After inactivity, something moves to re-engage |
 
+### Media & image — [`families/16`](families/16-media-image.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `media.blur-up` | framework/build | cheap | A tiny blurred version stands in until the real image arrives |
+| `media.ken-burns` | CSS | free | A still photograph slowly pans and zooms |
+| `media.compare-slider` | CSS | free | A draggable divider wipes between two versions |
+| `media.lightbox` | View Transitions | free | A thumbnail expands into a viewer and returns to its place |
+| `media.video-scrub` | platform + ST | moderate | Scroll position controls video playback time |
+| `media.hover-preview` | platform | cheap | A thumbnail starts playing when you point at it |
+| `media.progressive-reveal` | encoder | free | The image appears as it decodes, coarse to fine |
+| `media.carousel-slide` | CSS scroll-snap | free | A horizontal strip advances one item at a time |
+| `media.zoom-inspect` | CSS + JS | cheap | Pointing at a product image magnifies that region |
+| `media.ratio-settle` | HTML | free | The frame is correct before the image exists |
+| `media.grid-reveal` | ST + queue | cheap | A photo grid fills in reading order, not network order |
+
+### Navigation & menus — [`families/17`](families/17-navigation-menus.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `nav.hide-on-scroll` | JS + CSS | free | The header retracts scrolling down, returns scrolling up |
+| `nav.overlay-menu` | timeline lib | cheap | A panel covers the viewport, its links arriving in sequence |
+| `nav.dropdown` | Popover API | free | A small panel appears beneath its trigger |
+| `nav.mega-menu` | CSS + intent | cheap | A full-width panel of grouped links expands |
+| `nav.drawer` | dialog/CSS | free | A panel slides in from an edge over the content |
+| `nav.command-palette` | dialog | cheap | A search-driven launcher appears on a keystroke |
+| `nav.active-indicator` | CSS + JS | free | A marker travels to the current nav item |
+| `nav.breadcrumb-collapse` | CSS | free | A long trail folds into an ellipsis |
+| `nav.tab-bar` | CSS | free | Mobile tab icons animate as sections change |
+| `nav.scroll-spy` | IO | free | The sidebar marks which section you are reading |
+| `nav.skip-link` | CSS | free | A hidden link appears on focus to jump past navigation |
+| `nav.sticky-subnav` | CSS sticky | free | A secondary bar detaches and pins as you scroll past |
+
+### Forms & input — [`families/18`](families/18-forms-input.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `form.focus-field` | CSS | free | The field acknowledges that it is the one you are typing in |
+| `form.floating-label` | CSS | free | The placeholder rises and shrinks to become the label |
+| `form.inline-validation` | CSS | free | The field reports in place whether its contents are acceptable |
+| `form.step-progress` | any | cheap | A multi-step form advances, showing how far along you are |
+| `form.submit-resolve` | CSS | free | The submit button becomes the outcome |
+| `form.autocomplete` | Popover/listbox | cheap | Suggestions appear and filter as you type |
+| `form.char-counter` | CSS | free | A live count reacts as the limit approaches |
+| `form.password-strength` | CSS | free | A meter fills and changes colour as a password improves |
+| `form.conditional-field` | CSS | free | Answering one question reveals dependent fields |
+| `form.otp-entry` | JS | free | A row of single-character boxes advances itself |
+| `form.range-slider` | native input | free | A handle drags along a track, value following |
+| `form.autosave` | debounce | free | The form quietly reports that it has kept your work |
+
+### Loading, progress & streaming — [`families/19`](families/19-loading-progress-streaming.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `load.token-stream` | streaming API | cheap | Generated text appears progressively as it is produced |
+| `load.thinking` | CSS | free | Three dots pulse while a response is prepared |
+| `load.staged-reveal` | server streaming | free | Each part shows as it becomes ready |
+| `load.determinate` | CSS | free | A bar reports actual progress toward a known total |
+| `load.indeterminate` | CSS | free | A segment travels when the duration is unknown |
+| `load.skeleton` | CSS | free | The shape of the content stands in for the content |
+| `load.optimistic-item` | state | free | Your submission appears immediately, visibly provisional |
+| `load.infinite-scroll` | IO | cheap | More content fetches as you approach the end |
+| `load.stall-escalate` | timers | free | A long wait changes what it says the longer it runs |
+| `load.progressive-hydrate` | framework | free | Static content becomes interactive in priority order |
+| `load.upload` | progress events | free | A file being uploaded reports its own progress in place |
+| `load.refresh-pulse` | CSS | free | Visible data indicates quietly that it is updating |
+
+### Overlays — [`families/20`](families/20-overlays.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `overlay.modal-dialog` | `<dialog>` | free | A dialog scales up while the page recedes |
+| `overlay.top-layer-exit` | CSS | free | The technique that makes a closing overlay's exit visible |
+| `overlay.backdrop` | `::backdrop` | free | The page behind darkens to demote itself |
+| `overlay.popover-anchored` | Popover + anchor | free | A panel appears attached to the control that opened it |
+| `overlay.tooltip` | Popover | free | A small label appears after you rest on something |
+| `overlay.bottom-sheet` | dialog + drag | cheap | A panel rises from the bottom edge on a phone |
+| `overlay.context-menu` | Popover | free | A menu appears exactly where you invoked it |
+| `overlay.snackbar` | Popover | cheap | A brief message with an undo, anchored to the bottom |
+| `overlay.confirm-destructive` | `<dialog>` | free | The dialog that deliberately does not make it easy |
+| `overlay.consent-banner` | CSS | free | The compliance panel that appears before anything else |
+| `overlay.nested-stack` | top layer | free | An overlay opened from another, without losing the first |
+| `overlay.focus-return` | JS | free | Closing an overlay puts you back exactly where you were |
+
+### E-commerce & conversion — [`families/21`](families/21-ecommerce-conversion.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `commerce.add-to-cart` | motion path | cheap | The product visibly travels to the cart |
+| `commerce.variant-swap` | CSS | free | Choosing a colour or size updates imagery in place |
+| `commerce.price-update` | CSS | free | The price changes visibly when your selection changes it |
+| `commerce.quantity-stepper` | CSS + timer | free | Plus and minus with the number responding between |
+| `commerce.cart-drawer` | dialog | free | The cart slides in without leaving the page |
+| `commerce.filter-update` | FLIP | cheap | Applying a filter rearranges rather than reloads |
+| `commerce.sticky-buy-bar` | IO + CSS | free | The purchase control follows you down a long page |
+| `commerce.payment-processing` | CSS | free | The pay button becomes a progress state, then an outcome |
+| `commerce.order-confirm` | SVG | free | The moment of confirmation, marked deliberately |
+| `commerce.wishlist-toggle` | CSS | free | A heart or bookmark fills with a small flourish |
+| `commerce.urgency-timer` | timer | free | (!) Countdown or scarcity pressure — see the entry |
+| `commerce.trust-reveal` | CSS | free | Reassurance appears at the moment doubt does |
+
+### Onboarding & empty states — [`families/22`](families/22-onboarding-tours-empty-states.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `onboard.empty-state` | CSS | free | The screen with nothing in it introduces itself |
+| `onboard.coach-mark` | Popover | free | A tooltip points at one control and explains it |
+| `onboard.spotlight` | clip-path | free | Everything dims except the one thing being pointed at |
+| `onboard.tour-step` | tour lib | cheap | The tour moves from one point of interest to the next |
+| `onboard.checklist` | CSS | free | A setup list ticks itself off as you complete things |
+| `onboard.hotspot` | CSS | free | A small pulsing dot marks something new |
+| `onboard.sample-data` | components | cheap | The empty screen fills with example content |
+| `onboard.contextual-hint` | CSS + state | free | A short explanation the first time you reach something |
+| `onboard.progressive-reveal` | state | free | Advanced controls appear once the basics are in use |
+| `onboard.demo-loop` | video/Lottie | cheap | A short looping animation shows the feature in use |
+| `onboard.completion` | CSS | free | Finishing setup is marked once, then never again |
+| `onboard.skip` | CSS | free | The visible, permanent way out of being taught |
+
+### Tables, lists & grids — [`families/23`](families/23-tables-lists-grids.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `table.sort-reorder` | FLIP | cheap | Re-sorting slides rows to their new positions |
+| `table.row-expand` | CSS | free | A row opens downward to reveal its detail |
+| `table.sticky-header` | CSS sticky | free | Column headers stay put while the body scrolls |
+| `table.selection-bar` | CSS | free | Selecting rows summons a bar of actions |
+| `table.inline-edit` | CSS | free | A cell becomes editable in place |
+| `table.column-resize` | pointer events | free | Dragging a column edge changes its width live |
+| `table.virtual-scroll` | TanStack/react-window | moderate | Only the visible rows exist, invisibly |
+| `table.skeleton-rows` | CSS | free | Placeholder rows hold the table's shape while loading |
+| `table.live-update` | CSS | free | A row's values change while you are looking |
+| `table.pagination` | CSS | free | Moving between pages, deliberately undramatic |
+| `table.scroll-shadow` | CSS | free | A shadow at the edge shows there are more columns |
+| `table.group-collapse` | CSS | free | Grouped rows fold away under their heading |
+
+### Theme & appearance — [`families/24`](families/24-theme-appearance.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `theme.mode-switch` | CSS vars | free | Light becomes dark, everywhere, at once |
+| `theme.no-flash` | inline script | free | The correct theme applied before the first pixel |
+| `theme.circular-reveal` | View Transitions | free | The new theme expands outward from the toggle |
+| `theme.toggle-icon` | SVG | free | The sun becomes a moon |
+| `theme.system-sync` | media query | free | The interface follows the OS, and changes when it does |
+| `theme.accent-change` | `@property` | free | The user picks a colour and the interface adopts it |
+| `theme.density-switch` | CSS vars | free | The interface tightens or relaxes its spacing |
+| `theme.text-scale` | rem sizing | free | The user makes everything bigger and the layout copes |
+| `theme.contrast-mode` | media query | free | The interface switches to maximum legibility |
+| `theme.preview-swatch` | scoped vars | free | Hovering a theme shows it before committing |
+| `theme.seasonal` | token layer | free | A temporary skin over the normal appearance |
+| `theme.media-swap` | `<picture>` | free | Images and illustrations change with the theme |
+
+### Playful, reward & delight — [`families/25`](families/25-playful-reward-delight.md)
+
+| id | Stack | Cost | One line |
+|---|---|---|---|
+| `play.confetti` | canvas | cheap | Coloured pieces erupt and fall to mark a completion |
+| `play.streak` | CSS + state | free | (!) A running count of consecutive days — see the entry |
+| `play.badge-unlock` | CSS/Lottie | cheap | An achievement revealed with a moment of ceremony |
+| `play.task-complete` | CSS + FLIP | free | A small, proportionate acknowledgement of finishing |
+| `play.easter-egg` | any | free | A hidden reaction for someone who went looking |
+| `play.mascot` | Rive/Lottie | moderate | A character responds to what you are doing |
+| `play.variable-reward` | any | free | (!) Slot-machine mechanics — documented to be refused |
+| `play.level-up` | CSS | free | Crossing a threshold is marked with escalation |
+| `play.error-personality` | any | free | The 404 page is the one place to be funny |
+| `play.idle-personality` | timers | free | The interface has small habits when nothing happens |
+| `play.haptic-pairing` | Vibration API | free | A physical tap accompanies the visual response |
+| `play.surprise-reveal` | canvas | cheap | Something concealed, uncovered by the user |
+
+### Motion systems — [`motion-systems.md`](motion-systems.md)
+
+Not a family file. Tokens, naming, specs, review, testing and versioning — the layer that makes
+the entries above behave as one language. Written as a document because its content is practice
+rather than animation; see the note in its header.
+
+
 ---
 
 ## Decision tree
@@ -284,6 +460,24 @@ scroll-timeline) · `pointer.underline-draw` · `micro.press` · `layout.view-tr
 → `micro.press` · `micro.focus-ring` · `micro.field-validation` · `micro.delayed-spinner` ·
 `route.scroll-restore` · `3d.fallback` if 3D is involved. This list is the one that is not
 optional.
+
+### "I am building a data-heavy tool"
+
+Stability over delight. -> `table.sticky-header` for orientation · `table.virtual-scroll` past
+1,000 rows · `table.live-update` without re-sorting · `form.inline-validation` ·
+`micro.focus-ring` · `load.skeleton`. Read the row-count ceiling in `families/23` first.
+
+### "I am building an AI or streaming interface"
+
+-> `load.token-stream` as the baseline · `load.thinking` before the first token ·
+`load.stall-escalate` past a few seconds · `micro.optimistic` for reversible actions.
+Time-to-first-anything is the metric, not total duration.
+
+### "I want to be sure I am not manipulating anyone"
+
+Read these before shipping: `commerce.urgency-timer` · `play.streak` ·
+`play.variable-reward` · `ambient.auto-carousel` · `overlay.consent-banner`. Each documents
+what the 2026 regulatory position is and why the pattern is on the list.
 
 ---
 

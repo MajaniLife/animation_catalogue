@@ -269,6 +269,7 @@ for interaction, timelines for choreography.
   library.
 - **Params** — cycles (3–5); amplitude (4–10px); duration (0.3–0.5s total).
 - **Use when** — form validation failure, an incorrect entry, a nudge toward a primary action.
+  `form.inline-validation` covers when to fire it and what must accompany it.
 - **Don't use when** — as decoration. A wiggle means "no" — using it for delight teaches
   people the wrong vocabulary.
 - **Reduced motion** — no shake. Use a colour change and, more importantly, a message.

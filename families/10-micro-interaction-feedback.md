@@ -120,7 +120,8 @@ interaction inherits the latency of your backend.
   spinner period (0.8–1.2s per rotation).
 - **Use when** — every asynchronous operation between roughly 200ms and 10s.
 - **Don't use when** — the operation exceeds ~10 seconds; beyond that a bare spinner stops
-  reassuring anyone and you need real progress or a stated estimate.
+  reassuring anyone and you need real progress or a stated estimate — see
+  `load.stall-escalate`.
 - **Reduced motion** — a non-spinning indicator: a pulsing dot, or a static "Loading…" with a
   live region. Continuous rotation is exactly the motion some users have asked to avoid.
 - **Performance** — one rotating element. Trivial, but if it is rendered permanently and merely
@@ -170,7 +171,8 @@ interaction inherits the latency of your backend.
 - **Stack** — a toast library, or presence handling plus FLIP for the stack.
 - **Params** — entrance (200–300ms); hold (4–6s, longer for longer messages); exit
   (150–250ms — faster than entry); maximum simultaneous toasts (3).
-- **Use when** — non-blocking confirmations and errors.
+- **Use when** — non-blocking confirmations and errors. When the message carries an action
+  such as undo, see `overlay.snackbar` — the decision window changes the timing.
 - **Don't use when** — the message is critical or requires action. Toasts disappear, and
   anything that must be acknowledged should not.
 - **Reduced motion** — appear and disappear without sliding.
@@ -300,7 +302,8 @@ interaction inherits the latency of your backend.
   `pointer.stack-swap`.
 - **Params** — slide duration (150–250ms); direction (up for increments, down for decrements
   — this small consistency is what makes it readable); pulse scale (1.1 at most).
-- **Use when** — cart counts, notification badges, live totals.
+- **Use when** — cart counts, notification badges, live totals. For prices specifically, see
+  `commerce.price-update` — a silently changed price is the most consequential case.
 - **Don't use when** — values change several times a second; a constantly ticking number is
   unreadable.
 - **Reduced motion** — the number changes with no slide; keep any colour or weight change.
@@ -325,7 +328,8 @@ interaction inherits the latency of your backend.
 - **Stack** — CSS keyframes on a gradient background.
 - **Params** — period (1.5–2s; faster reads as anxious); contrast (low — the shimmer should be
   barely there); crossfade on swap (150–250ms).
-- **Use when** — content whose shape is known before its data arrives.
+- **Use when** — content whose shape is known before its data arrives. `load.skeleton` covers
+  the full-screen case and `table.skeleton-rows` the tabular one.
 - **Don't use when** — the wait is under about 300ms; use the delayed-spinner rule and show
   nothing.
 - **Reduced motion** — static placeholders with no shimmer.

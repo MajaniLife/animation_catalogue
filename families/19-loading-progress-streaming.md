@@ -170,7 +170,8 @@ than about a second.** Past that, show evidence of actual processing.
   loop (see `micro.skeleton-shimmer`) and a crossfade on swap.
 - **Stack** — CSS; the accuracy of the shapes is the real work.
 - **Params** — shimmer period (1.5–2s); crossfade (150–250ms); minimum display (~300ms).
-- **Use when** — content whose shape is predictable: feeds, cards, tables, profiles.
+- **Use when** — content whose shape is predictable: feeds, cards, tables, profiles. For
+  tabular data specifically, `table.skeleton-rows` covers row-height matching.
 - **Don't use when** — the shape is unknown, or the wait is under ~300ms. A skeleton that
   guesses wrong creates the layout shift it existed to prevent.
 - **Reduced motion** — static placeholders, no shimmer.

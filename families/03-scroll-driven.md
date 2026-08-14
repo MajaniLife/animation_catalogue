@@ -363,7 +363,8 @@ handles the hard cases.
   scrubbed colour interpolation is the smooth one.
 - **Params** — transition length (a third of a viewport); which tokens change (background,
   text, accent — as a set, never individually).
-- **Use when** — long single-page sites with distinct chapters.
+- **Use when** — long single-page sites with distinct chapters. This is a scroll-driven
+  palette change; for a user-chosen light/dark switch see `theme.mode-switch`.
 - **Don't use when** — there are more than three or four palettes. Beyond that it reads as
   a slideshow.
 - **Reduced motion** — the shifts can stay; a colour crossfade is not vestibular motion.

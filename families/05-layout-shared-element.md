@@ -286,7 +286,8 @@ expose.
   version.
 - **Params** — duration (0.3–0.4s); backdrop fade (slightly longer, so it does not finish
   first); content fade-in (after the geometry settles).
-- **Use when** — popovers, menus, dialogs opened from a specific control.
+- **Use when** — popovers, menus, dialogs opened from a specific control. For the plain
+  centred case and the top-layer mechanics, see `overlay.modal-dialog`.
 - **Don't use when** — the dialog is opened by something off-screen or by a keyboard
   shortcut with no origin. Fall back to a centred scale.
 - **Reduced motion** — appear at final position with a short fade, no travel.

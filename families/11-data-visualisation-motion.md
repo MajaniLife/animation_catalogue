@@ -178,7 +178,8 @@ split the transition into stages.
 - **Stack** — D3 keyed joins, or a layout-animation library.
 - **Params** — duration (0.4–0.6s); easing (ease-in-out — elements start and stop together);
   no stagger, so the reordering reads as one event.
-- **Use when** — sortable tables and rankings, leaderboards, comparison charts.
+- **Use when** — sortable tables and rankings, leaderboards, comparison charts. In a data
+  table specifically, `table.sort-reorder` carries the row-count ceiling that governs it.
 - **Don't use when** — the list is long. Twenty rows crossing each other is noise, not
   information.
 - **Reduced motion** — apply the new order instantly.

@@ -173,7 +173,7 @@ with attributes.
 - **Gotchas** — persist widths per user or they are lost on every visit, which makes the feature
   feel pointless. Provide a keyboard path — resize handles are pointer-only otherwise — and
   enforce a minimum width so a column cannot be dragged to invisibility.
-- **References** — https://dev.to/zeeshanali0704/frontend-system-design-virtualization-handling-large-data-sets
+- **References** — https://developer.mozilla.org/en-US/docs/Web/CSS/contain
 
 ---
 
@@ -279,7 +279,7 @@ with attributes.
 - **Gotchas** — move focus to the table or its first row after a page change and announce the
   new page, or keyboard users are left focused on a button with no idea what happened. Preserve
   sort, filter and selection state across pages, or say clearly that selection is per page.
-- **References** — https://dev.to/zeeshanali0704/frontend-system-design-virtualization-handling-large-data-sets
+- **References** — https://www.patterns.dev/vanilla/virtual-lists/
 
 ---
 

@@ -205,7 +205,8 @@ must have a genuinely static form that still looks intentional.
 - **Stack** — a carousel library, or scroll-snap plus a timer.
 - **Params** — interval (6–8s minimum — the common 3–4s is well below reading speed for many
   people); transition (0.4–0.6s); pause on hover, focus and interaction.
-- **Use when** — genuinely rarely. If the content matters, put it on the page.
+- **Use when** — genuinely rarely. If the content matters, put it on the page. The
+  user-driven equivalent, which does not auto-advance, is `media.carousel-slide`.
 - **Don't use when** — the panels contain content people need, or there are more than three.
 - **Reduced motion** — do not auto-advance at all; show the first panel with manual controls.
 - **Performance** — negligible; the cost here is attention, not frames.

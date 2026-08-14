@@ -38,7 +38,7 @@ phase, research before writing, own file only.
 - [x] 24 Theme & appearance transitions
 - [x] 25 Playful, reward & delight
 - [x] 26 Motion systems — tokens, specs, handoff (document, not a family — see file header)
-- [ ] 27 Index & QA pass for the expansion
+- [x] 27 Index & QA pass for the expansion
 
 ## Notes for the next session
 

@@ -32,7 +32,7 @@ phase, research before writing, own file only.
 - [x] 18 Forms & input
 - [x] 19 Loading, progress & streaming states
 - [x] 20 Overlays — modals, drawers, tooltips, popovers
-- [ ] 21 E-commerce & conversion motion
+- [x] 21 E-commerce & conversion motion
 - [ ] 22 Onboarding, tours & empty states
 - [ ] 23 Tables, lists & data grids
 - [ ] 24 Theme & appearance transitions

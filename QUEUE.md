@@ -27,7 +27,7 @@ The first sixteen phases covered the motion *primitives*. This expansion covers 
 choice of effect is constrained by what the surface is for. Same rules: one session, one
 phase, research before writing, own file only.
 
-- [ ] 16 Media & image motion
+- [x] 16 Media & image motion
 - [ ] 17 Navigation & menu systems
 - [ ] 18 Forms & input
 - [ ] 19 Loading, progress & streaming states

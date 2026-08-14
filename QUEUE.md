@@ -37,7 +37,7 @@ phase, research before writing, own file only.
 - [x] 23 Tables, lists & data grids
 - [x] 24 Theme & appearance transitions
 - [x] 25 Playful, reward & delight
-- [ ] 26 Motion systems — tokens, specs, handoff
+- [x] 26 Motion systems — tokens, specs, handoff (document, not a family — see file header)
 - [ ] 27 Index & QA pass for the expansion
 
 ## Notes for the next session

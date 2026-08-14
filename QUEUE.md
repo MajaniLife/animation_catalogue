@@ -34,7 +34,7 @@ phase, research before writing, own file only.
 - [x] 20 Overlays — modals, drawers, tooltips, popovers
 - [x] 21 E-commerce & conversion motion
 - [x] 22 Onboarding, tours & empty states
-- [ ] 23 Tables, lists & data grids
+- [x] 23 Tables, lists & data grids
 - [ ] 24 Theme & appearance transitions
 - [ ] 25 Playful, reward & delight
 - [ ] 26 Motion systems — tokens, specs, handoff

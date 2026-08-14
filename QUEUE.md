@@ -28,7 +28,7 @@ choice of effect is constrained by what the surface is for. Same rules: one sess
 phase, research before writing, own file only.
 
 - [x] 16 Media & image motion
-- [ ] 17 Navigation & menu systems
+- [x] 17 Navigation & menu systems
 - [ ] 18 Forms & input
 - [ ] 19 Loading, progress & streaming states
 - [ ] 20 Overlays — modals, drawers, tooltips, popovers

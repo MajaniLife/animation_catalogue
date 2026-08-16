@@ -335,6 +335,75 @@ than about a second.** Past that, show evidence of actual processing.
   those; a live region firing every poll is intolerable.
 - **References** — https://www.groovyweb.co/blog/ui-ux-design-trends-ai-apps-2026
 
+### Title card (`load.title-card`)
+
+- **One line** — the loading screen is a typeset line on the page's own grid, not a progress
+  report, and it hands the page in rather than getting out of the way.
+- **What the reader sees** — The page opens on a solid field with almost nothing on it: three
+  short runs of small type on one line across the middle — one at the left margin, a mark at
+  the centre, one at the right margin — sitting exactly where the page's own gutters are. The
+  two outer runs are noise, every character churning through symbols several times a second.
+  They settle left to right, over about a second, into two readable lines: what the company
+  does, and where it is. The field holds a beat, then leaves. Underneath, the page is already
+  moving — the sentence you just watched resolve is climbing into place at headline size, on
+  the same left edge it just occupied. It reads less like waiting than like a title card.
+- **Mechanism** — three composed parts on one timeline. A per-character text swap on a moving
+  resolved/unresolved boundary (`driver:time`); a hold; then a `transform` on the covering
+  field leaves — as one panel, as a fade, or as two halves seamed on the type line; the shape
+  is a choice and none of the sighted implementations exposed theirs. The last part starts the
+  first screen's own timeline at a **negative offset** relative to the field's exit, so the two
+  overlap. No layout property is animated.
+- **Stack** — free hand-rolled: the resolve is ~30 lines of `requestAnimationFrame`, the exit
+  is a CSS transition, the handoff is one offset. GSAP ScrambleText + a timeline buys you
+  `revealDelay`, `rightToLeft` and word-granularity `delimiter` handling, and labelled
+  timeline positions for the overlap; it is a convenience, not a requirement.
+- **Params** — resolve duration (0.8–1.2s; under 0.5s nobody reads it, over 1.5s it is a
+  toll); hold after resolve (0.8–1.4s; 0 is legitimate and means "leave on resolve");
+  exit duration (0.7–1s); **handoff offset** (−0.4s to −0.8s — the knob that decides whether
+  this is one move or two, and the only one worth being fussy about); character set (symbols,
+  hex, the target's own alphabet — this choice *is* the register).
+- **Use when** — the opening line is worth reading and you want it read before the layout
+  competes with it; an agency or portfolio site whose positioning statement *is* the content;
+  there is a genuine wait — a font set, a hero video, a first WebGL frame — to spend.
+- **Don't use when** — there is nothing to load. A card over an already-rendered page is a
+  toll booth you built yourself. Also: any page where the visitor arrives repeatedly, unless
+  it is gated to once per session; and anywhere the first screen must be found by search — the
+  card holds the largest contentful paint hostage for its whole duration.
+- **Reduced motion** — the card is never inserted and the page is simply already there, with
+  the first screen at its final state and the two lines set, unscrambled. Not "the card
+  without animation" — a still card is a blank screen over the page with no way past it. If
+  the wait is real, replace the theatre with a plain, announced busy state rather than
+  nothing.
+- **Performance** — two moving parts with different costs. The field's exit is compositor-only
+  — `transform` on two panels. The resolve is **not**: replacing `textContent` every frame
+  invalidates layout on that element, which is affordable at label length and is the reason
+  this entry says never to scramble a headline.
+  The cost that matters is neither, it is **LCP** — the field is opaque and
+  full-viewport, so the largest contentful paint cannot happen until it clears, and its whole
+  duration lands on that metric. Budget the card inside the LCP target, not alongside it.
+- **Gotchas** — **never gate the exit on a promise that can fail to settle.** Race
+  `document.fonts.ready` against a hard ceiling; it resolves only once layout is complete and
+  no further font loads are needed, which is a condition a slow third-party font can defer
+  indefinitely, and the failure mode is a permanent black screen. **Gate the intro explicitly**
+  — the first screen's timeline must be started by the card, not by `DOMContentLoaded`, or it
+  plays behind the field and nobody sees it (`cross-cutting.md`, "Gate the intro"). **The
+  churning runs must not reach assistive tech**: mark the card `aria-hidden` and `inert` and
+  put a real busy state on the document, or a screen reader announces a paragraph of symbols,
+  repeatedly. **Churn the spaces and the line changes width**, which reads as jitter — leave
+  spaces settled. And decide the second-visit question deliberately: once per session is the
+  common answer and it is a decision, not a default.
+- **References** — https://gsap.com/docs/v3/Plugins/ScrambleTextPlugin/ ·
+  https://developer.mozilla.org/en-US/docs/Web/API/FontFaceSet/ready ·
+  https://revelatio.studio · https://noth.in
+- **Tags** — `use:loading` `use:hero` `mood:cinematic` `mood:technical` `industry:agency`
+  `industry:portfolio` `driver:time` `prim:transform` `effect:waiting` `effect:quality`
+  `cost:free` `a11y:needs-fallback` `a11y:screenreader-risk` `rung:maximal`
+  `stack:css` `stack:js-vanilla` `stack:gsap` `era:evergreen` `device:touch-safe`
+  `device:reduced-motion-critical`
+- **Pairs with** — `entrance.hero-sequence`, `entrance.mask-rise`, `text.scramble`
+- **Conflicts with** — `entrance.curtain` (two owners of the opening moment), `route.curtain`
+  (the same, on the first navigation), `load.determinate` (two loading states on one screen)
+
 ---
 
 ## Family notes

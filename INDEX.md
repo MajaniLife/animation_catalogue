@@ -1,6 +1,6 @@
 # Index
 
-262 entries across twenty-three families, plus two cross-cutting documents. Cost is bundle *and* runtime: **free** (CSS/platform only),
+263 entries across twenty-three families, plus two cross-cutting documents. Cost is bundle *and* runtime: **free** (CSS/platform only),
 **cheap** (a few KB or a library already present), **moderate** (a dedicated library or plugin),
 **heavy** (its own rendering stack).
 
@@ -278,6 +278,7 @@ or the [conflict matrix](#conflict-matrix) before combining two effects.
 | `load.stall-escalate` | timers | free | A long wait changes what it says the longer it runs |
 | `load.progressive-hydrate` | framework | free | Static content becomes interactive in priority order |
 | `load.upload` | progress events | free | A file being uploaded reports its own progress in place |
+| `load.title-card` | CSS + JS | free | The loading screen is a typeset line that hands the page in |
 | `load.refresh-pulse` | CSS | free | Visible data indicates quietly that it is updating |
 
 ### Overlays — [`families/20`](families/20-overlays.md)
@@ -514,6 +515,9 @@ Pairs the catalogue advises against combining, with the reason.
 | `dataviz.*` transitions | index-keyed data joins | Elements silently change meaning; the constancy failure |
 | `presence.live-cursors` | `pointer.cursor-dot` | Two visual grammars for the same object: a styled cursor for you, labelled arrows for everyone else |
 | `presence.live-cursors` | `ambient.cursor-trail` | Same, and the trail obscures which arrow is whose |
+| `load.title-card` | `entrance.curtain` | Two owners of the opening moment; the second plays behind the first |
+| `load.title-card` | `route.curtain` | The same collision on the first navigation |
+| `load.title-card` | `load.determinate` | Two loading states on one screen, one of which reports nothing |
 
 ---
 

@@ -49,6 +49,24 @@ phase, research before writing, own file only.
 - Phase 15 is the only phase permitted to edit an earlier phase's file, and must log
   every edit in `QA-REPORT.md`.
 
+## Raised by Pipeline 2 — `work/showcase/`, 2026-08-16
+
+Filed rather than improvised around, per Stage 3's rule. The run was benchmarked against
+`sondaven.com/en`; the finding was that the catalogue's **effects** cover that class of site
+and its **registers** do not. Full argument in
+[`PROPOSAL-2026-08-16-skin-layer.md`](PROPOSAL-2026-08-16-skin-layer.md).
+
+- [ ] `G-S4` **The skin layer** — `mood:` → parameter deltas over a base entry, plus
+  `Skin surface` / `Skin invariants` on every entry. Structural: not one entry. **Read the
+  proposal before taking this line; it is roughly six sessions and it touches all 262 entries.**
+- [ ] `G-S1` Display type measured to the viewport as a layout primitive — family 02
+- [ ] `G-S2` Preloader → hero handoff as one composite — family 01
+- [ ] `G-S3` An element scrubbed continuously across a section boundary — family 03
+- [ ] `G-S5` **QA, not a gap.** `INDEX.md`'s conflict matrix bans `ambient.*` × 2+;
+  `TAXONOMY.md`'s intensity ladder authorises "multiple simultaneous loops" at the maximal
+  rung. Both cannot hold. A maximal design hits this immediately — `work/showcase/` did, and
+  resolved it conservatively for itself only. Needs a decision at the catalogue level.
+
 ## Opened by the discovery pipeline
 
 - [x] 28 Collaborative & presence motion — opened against gap `G01`. **In progress:** 1 entry of a 12 minimum. Do not treat as complete.

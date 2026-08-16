@@ -3,6 +3,55 @@
 One session takes the **first unticked line**, researches only that, writes only that
 file, commits, and ticks it. Never two phases. Never skipped.
 
+## `@PARKED` — deliberately not being looked at
+
+Some items are real and are not for now. Left untagged they do one of two bad things: they
+pull attention every time someone opens this file, or they are quietly skipped and become
+invisible. `@PARKED` makes the deferral explicit and, more importantly, **reviewable in one
+pass** — the operator collects every parked item across the repository at a time of their
+choosing rather than meeting them one at a time.
+
+Find them all:
+
+```bash
+grep -rn "^  @PARKED(wake:" --include=*.md .
+```
+
+The tag is greppable by construction: capitalised, `@`-prefixed, and a string that does not
+occur in prose. The leading indent in that pattern is load-bearing — see the form below.
+
+### The form
+
+A tag reads `@PARKED(wake: …)` and sits on **its own line, indented two spaces, as the last
+line of the item it belongs to** — after the item's prose, not inside it. Look at `G-S4` or
+`G-A1` below for the shape; they are the form, and a live item is a better example than an
+invented one.
+
+Two reasons for that placement, both learned by getting it wrong first. Appended to the end of
+the item's opening line, the tag lands mid-sentence on any item whose prose wraps — *"short
+strings fall @-PARKED-(…) through the gap"*. And the two-space indent is what separates real
+tags from writing about tags: this section discusses the convention at length and matches the
+search zero times, because prose sits at column zero and tags never do. That is also why there
+is no worked example in a fenced block here — it would be the one false positive in every
+batch review, forever.
+
+**The wake condition is not optional.** A parked item without one is a forgotten item wearing
+a label — at review time it offers nothing to sort by, so the batch review degenerates into
+re-reading everything, which is the thing the tag was supposed to prevent. Good conditions
+name an event, not a date: `tags.json exists`, `next maximal design`, `third sighting`. A date
+is a guess about when someone will care; an event is the thing that makes them care.
+
+### Sightings, and the rule that stops this becoming a dustbin
+
+A gap re-raised by a later run carries `sighting: n`. **At the third sighting an item may not
+be parked.** The reason is the failure mode this tag invites: the problems that recur most
+often are the ones most easily deferred each time, so the register quietly sorts *against* its
+own most-load-bearing entries. Three sightings is the catalogue telling you something, and the
+answer to being told three times is not a fourth deferral.
+
+Two items in this file already sit at that boundary — `G-A1` at its second sighting, and
+`G-A5`'s class at its third, which is why `G-A5` carries no `@PARKED` tag below.
+
 - [x] 00 Foundation — taxonomy, stacks, entry schema, queue
 - [x] 01 Entrance & reveal
 - [x] 02 Text & kinetic typography
@@ -59,10 +108,14 @@ and its **registers** do not. Full argument in
 - [ ] `G-S4` **The skin layer** — `mood:` → parameter deltas over a base entry, plus
   `Skin surface` / `Skin invariants` on every entry. Structural: not one entry. **Read the
   proposal before taking this line; it is roughly six sessions and it touches all 262 entries.**
+  @PARKED(wake: tags.json exists — 262 of 263 entries carry no tag block, and a skin layer over an unpopulated tag model has nothing to key on)
 - [ ] `G-S1` Display type measured to the viewport as a layout primitive — family 02
+  @PARKED(wake: next family-02 pass)
 - [ ] `G-S2` Preloader → hero handoff as one composite — family 01
+  @PARKED(wake: next family-01 pass)
 - [ ] `G-S3` An element scrubbed continuously across a section boundary — family 03
-- [ ] `G-S5` **QA, not a gap.** `INDEX.md`'s conflict matrix bans `ambient.*` × 2+;
+  @PARKED(wake: next family-03 pass)
+- [ ] `G-S5` **QA, not a gap.** **NOT PARKABLE — third sighting of this class with `G-A5`.** `INDEX.md`'s conflict matrix bans `ambient.*` × 2+;
   `TAXONOMY.md`'s intensity ladder authorises "multiple simultaneous loops" at the maximal
   rung. Both cannot hold. A maximal design hits this immediately — `work/showcase/` did, and
   resolved it conservatively for itself only. Needs a decision at the catalogue level.
@@ -82,6 +135,7 @@ deck — when the human asked for a typed wordmark and a better lighting treatme
   with a hero moment improvises this out of `background-clip: text`, which is exactly how the
   Adda deck arrived at a treatment its own client called visually poor. **Interim:**
   `ambient.gradient-drift` run once as a ramp. First sighting.
+  @PARKED(wake: third sighting; sighting: 2 — see the round-2 note below, where it worsened)
 - [ ] `G-A2` **No conflict-matrix row for split text × `layout.shared-element` on one node.** The
   matrix covers split × split (a DOM-rewrite collision). It does not cover split × FLIP handoff,
   where the failure is quieter: the FLIP measures a container of per-character fragments instead
@@ -89,6 +143,7 @@ deck — when the human asked for a typed wordmark and a better lighting treatme
   the destination element. Not hypothetical — `work/adda/` had already recorded one wrong FLIP
   scale from measuring the wrong box. Proposed row: *`text.*` (split-based) × `layout.shared-element`
   (same node) — the split must be reverted before the handoff.*
+  @PARKED(wake: next design putting split text on a shared-element node)
 - [ ] `G-A3` **`text.typewriter` and `text.char-cascade` overlap silently, and short strings fall
   through the gap.** `text.typewriter` carries a blanket "most dated effect in this file" and a
   Params set written for sentences (20–40 cps), with nothing for a 2–5 character wordmark — where
@@ -97,6 +152,7 @@ deck — when the human asked for a typed wordmark and a better lighting treatme
   where nobody choosing between the two will find it. Catalogue hygiene, not a missing
   capability, but it is why a designer asked for "typed" needed a paragraph to reach an answer
   the catalogue already contained.
+  @PARKED(wake: next family-02 pass — hygiene, not a missing capability)
 
 Round 2 of the same revision added four more:
 
@@ -105,7 +161,8 @@ Round 2 of the same revision added four more:
   prices it, or states its reduced-motion form. The nearest, `entrance.split-part`, is a
   concealment device — "panels removed" under reduced motion — and is the wrong thing. What is
   missing is a reversible, scroll-bound parting of a page's **own** ground.
-- [ ] `G-A5` **The matrix reasons about behaviour and is written against ids.** `ambient.*` × 2+
+  @PARKED(wake: next use of load.title-card)
+- [ ] `G-A5` **The matrix reasons about behaviour and is written against ids.** **NOT PARKABLE — third sighting of this class, with `G-S5`.** `ambient.*` × 2+
   states its reason as "every ambient loop is a permanent cost; one per page". A design citing two
   `ambient.*` ids and running zero loops satisfies the reason and violates the letter, and there is
   no way to record that. `work/adda/` dropped `ambient.idle-nudge` on the letter while running no
@@ -113,6 +170,7 @@ Round 2 of the same revision added four more:
 - [ ] `G-A6` **No entry for an invitation on an untimed hold.** `ambient.idle-nudge` is the nearest
   and is written for onboarding, capped at two firings. A loading card that waits for the reader by
   design may wait longer than two nudges, and the entry has no guidance beyond "never indefinitely".
+  @PARKED(wake: next untimed loading state)
 - [ ] `G-A1` **is a second sighting and is worse than first recorded.** `work/adda/` now runs an
   `ambient.*` entry *with its ambient switched off* — a field whose only motion is a one-way
   arrival — because the catalogue's only large soft light is defined as a loop. The entry needed is

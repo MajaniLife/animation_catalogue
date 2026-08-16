@@ -11,12 +11,17 @@ this order. A phase that deviates gets corrected in the QA pass.
 - **Mechanism** — which properties are animated, over what curve, driven by what.
 - **Stack** — which stacks do this well, the plugin or bundle cost, the cheapest route.
 - **Params** — the 3–6 knobs that matter, with defaults and the range where it breaks.
-- **Use when** — 2–4 bullets.
-- **Don't use when** — 2–4 bullets.
+- **Use when** — one line; 2–4 clauses separated by semicolons.
+- **Don't use when** — one line; 2–4 clauses separated by semicolons.
 - **Reduced motion** — what it becomes under `prefers-reduced-motion`.
 - **Performance** — compositor-only or layout-touching; per-frame cost; mobile caveat.
 - **Gotchas** — the things that cost someone a day.
 - **References** — 2–4 URLs actually fetched while writing the entry.
+- **Tags** — the facet block, per `tags/TAG-VOCABULARY.md`. Twelve facets, in vocabulary order.
+- **Pairs with** — 2–4 entry ids that compose well with this one. Ids only, no prose.
+- **Conflicts with** — entry ids that must not share a screen with this one, each with the
+  reason in parentheses. Empty is a valid answer; "none found" is not — omit the field only
+  if you checked.
 ```
 
 ## The field that matters
@@ -71,6 +76,24 @@ Two libraries writing the same property. Anything you had to learn twice.
 **References** — fetched this session, not remembered. If a URL 404s or is paywalled,
 drop it and find another. Prefer primary sources: library docs, spec text, the
 technique author's own write-up. Listicles and content farms are not references.
+
+**Use when / Don't use when** — one prose line each, clauses separated by semicolons. Not
+bullets. This schema asked for "2–4 bullets" until 2026-08-16 while all 263 entries used the
+prose line, which meant the reviewer's check 5 was measuring against a format nothing
+followed. The entries were right: a semicolon line reads as a sentence and stays inside the
+entry's rhythm, where four bullets fragment it. The schema was changed to describe the
+catalogue rather than the catalogue reformatted to satisfy the schema.
+
+**Tags / Pairs with / Conflicts with** — required fields, not an appendix. `TAG-VOCABULARY.md`
+has always specified the block "appended to each entry after `References`", but this schema
+ended at `References` and told the builder "no fields omitted, no fields invented". A builder
+obeying its brief therefore shipped no tags, and Stage 4's check 8 — "tags are defensible" —
+had nothing to check. That is exactly what happened to `cand-2026-08-16-a`: the reviewer
+recorded check 8 as UNREVIEWABLE and specified a tag block itself, so those tags were written
+by the agent that merged them and reviewed by nobody.
+
+Tag at build time so the gate can see them. Tagging at integration puts the tags on the wrong
+side of the review.
 
 ## Id convention
 
